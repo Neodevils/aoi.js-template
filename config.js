@@ -1,22 +1,6 @@
-module.exports = {
-	Bot: {
-		token: process.env.TOKEN,
-		prefix: "$",
-		intents: "all",
-    database : {
-      db : require("aoi.db"),
-      type : "aoi.db",
-      path : "./database/",
-      tables : ["main"],
-      extraOptions : { 
-        dbType : "KeyValue",
-        dbOptions :{ 
-          encryptOptions : { 
-            securitykey : process.env.SECURITYKEY,
-            enabled : true
-          }
-        }
-      }
-    }
-  }
-}
+export default {
+    // You decide for using .env or not
+    token: process.env.TOKEN || "DISCORD_BOT_TOKEN",
+    prefix: process.env.PREFIX || "DISCORD_BOT_PREFIX", 
+    intents: ["Guilds", "GuildMessages", "MessageContent"],
+};
