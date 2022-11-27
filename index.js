@@ -1,45 +1,21 @@
-const keepAlive = require('./server.js');
-const aoijs = require('aoi.js'); 
-const config = require('./config.js');
-const bot = new aoijs.Bot(config.Bot);
+import { AoiClient } from "aoi.js";
+import config from "./config.js";
 
-const voice = new aoijs.Voice(bot, {
-  cache: {
-    cacheType: "Memory",
-    enabled: true,
-  } 
+const bot = new AoiClient({
+	token: config.token,
+	prefix: config.prefix,
+	intents: config.intents,
 });
 
-require('./handler/status')(bot) 
-require('./handler/variables')(bot) 
-require('./handler/callbacks')(bot)
+bot.addEvent(["onMessage", "onInteractionCreate"]);
 
-const loader = new aoijs.LoadCommands(bot)
-loader.load(bot.cmd, "./commands/")
+bot.status.add({
+	name: "hello world",
+	presence: "online",
+	type: "WATCHING",
+	duration: 12000,
+});
 
-loader.setColors({
-  walking: ["blink", "dim", "fgWhite"],
-  failedWalking: {
-    name: ["bright", "fgYellow", "underline"],
- 
-    text: ["gray", "fgRed"]
-  },
-  typeError: {
-    command: ["bright", "fgYellow"],
-    type: ["fgYellow"],
-    text: ["bright", "fgRed"]
-  },
-  failLoad: {
-    command: ["bright", "fgMagenta"],
-    type: ["fgRed"],
-    text: ["bright", "fgRed"],
-  },
-  loaded: {
-    command: ["bright", "fgRed"],
-    type: ["bright", "fgWhite"],
-    text: ["bright", "fgBlue"]
-  },
- 
-})
+bot.commands.load("./commands/");
 
-keepAlive()
+bot.start();
