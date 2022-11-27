@@ -1,23 +1,18 @@
 {
-  "name": "aoijs-template",
-  "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {
-    "start": "node index.js"
-  },
-  "keywords": [],
-  "author": "Neo",
-  "license": "ISC",
-  "description": "aoi.js bot",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/NeoAIChan/aoijs-template.git"
-  },
-  "devDependencies": {
-    "node": "^17.7.2",
-    "npm": "^8.11.0"
-  },
-  "dependencies": {
-    "aoi.js": "v6.0.0"
-  }
+    "name": "aoijs-bot",
+    "version": "1.0.0",
+    "description": "A bot made with aoi.js",
+    "type": "module",
+    "main": "index.js",
+    "dependencies": {
+        "aoi.js": "^6.0.0"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [
+        "aoi.js"
+    ],
+    "author": "Your Name",
+    "license": "ISC"
 }
