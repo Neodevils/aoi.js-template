@@ -21,6 +21,6 @@
     "@akarui/aoi.music": "^2.3.0",
     "aoi.db": "github:usersatoshi/aoi.db#main",
     "aoi.js": "github:USERSATOSHI/aoi.js#v5",
-    "express": "^4.17.2"
+    "express": "^4.19.2"
   }
 }
